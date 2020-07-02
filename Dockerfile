@@ -1,7 +1,5 @@
-FROM alpine:3.12.0
+FROM nginx:1.19.0
 EXPOSE 80
 
-WORKDIR /var/app
-ADD ipserver ipserver
-
-CMD ./ipserver
+RUN rm /etc/nginx/conf.d/default.conf
+ADD server.conf /etc/nginx/conf.d/server.conf
